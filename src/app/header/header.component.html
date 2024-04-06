@@ -1,0 +1,79 @@
+<section hlmCard class="flex items-center p-[1.875rem] justify-between">
+    <hlm-sheet side="left" >
+        <button  size="icon" variant="outline" brnSheetTrigger hlmBtn>
+            <lucide-icon name="menu"></lucide-icon>
+        </button>
+
+        <hlm-sheet-content *brnSheetContent="let ctx" >
+            <hlm-sheet-header class="text-left text-lg font-semibold">
+                
+               
+
+                Menu
+            </hlm-sheet-header>
+            <!-- Se o usuário estiver logado deve aparecer um avatar e os nomes -->
+            <div class="flex flex-col" >
+                <div class="flex itens-center gap-2 py-4">
+                    <!-- Colocar o avatar utilizei o gravatar -->
+
+                    <div class="flex flex-col">
+                        <!-- Colocar o nome do usuário -->
+                        <p class="font-medium"></p>
+                        <p class="font-sm opacity-75">Boas compras</p>
+                    </div>
+                </div>
+                <brn-separator hlmSeparator/>
+            </div>
+
+            <div class=" flex flex-col gap-2 mt-2" >
+
+               
+                
+                    <button variant="outline" class="w-full justify-start gap-2"  hlmBtn >
+                        <lucide-icon name="home" size="16"></lucide-icon>
+                        Inicio
+                    </button >
+                
+
+                <button variant="outline" class="w-full justify-start gap-2"   hlmBtn>
+                    <lucide-icon name="percent" size="16"></lucide-icon>
+                    Ofertas
+                </button >
+
+                <a routerLink="/catalogo">
+                    <button variant="outline" class="w-full justify-start gap-2" hlmBtn>
+                        <lucide-icon  name="ListOrdered"  size="16"/>
+                        Catálogo
+                    </button >
+                </a>
+
+
+
+                <button variant="outline" class="w-full justify-start gap-2" hlmBtn>
+                    <lucide-icon name="user" size="16"></lucide-icon>
+
+                    Admin
+                </button >
+
+            </div>
+
+        
+        </hlm-sheet-content>
+    </hlm-sheet>
+
+    <a routerLink="/">
+        <h1 class="text-lg font-semibold"><span class="text-primary">E-commerce</span></h1>
+    </a>
+
+
+    <hlm-sheet side="right">
+        <button size="icon" variant="outline" brnSheetTrigger hlmBtn >            
+            <lucide-icon name="shopping-cart"></lucide-icon>
+        </button>
+
+        <hlm-sheet-content *brnSheetContent="let ctx">
+        <!-- Conteúdo do carrinho -->
+        
+        </hlm-sheet-content>
+    </hlm-sheet>
+</section>

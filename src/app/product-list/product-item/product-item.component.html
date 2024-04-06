@@ -1,0 +1,37 @@
+<a [routerLink]="['/product', product.slug]" class= 'flex min-w-[156px] flex-col gap-4 '>
+  <!-- Conteúdo do link -->
+
+    <div class="relative flex  aspect-square w-full items-center justify-center rounded-lg bg-accent">
+
+        <img 
+        src="{{product.imageUrls[0]}}"
+        [height]="0"
+        [width]="0"
+        sizes='100vw'
+        class='h-auto w-auto max-w-[80%] max-h-[70%]'
+        [style.objectFit]="'contain'"
+        alt="{{product.name}}" />
+
+      <!-- Símbolo de desconto -->
+      <div hlmBadge class="absolute left-2 top-2 px-2 py-[1px]">
+        <!-- <lucide-icon name="arrow-down"></lucide-icon> -->
+
+
+      </div>
+
+    </div>
+
+    <div>
+      <p class="truncate text-sm">{{product.name}}</p>
+      
+      
+      <div class="flex items-center gap-1 ">
+        <!-- Produtos que possuem preço com desconto -->
+
+        
+        <!-- Produtos que não possuem prelo com desconto -->
+
+        
+      </div>
+    </div>
+</a>
