@@ -30,7 +30,7 @@ export class HomeComponent {
 
  loadProducts(){
   try {
-    this.productService.getProduct().subscribe(products=>{
+    this.productService.getProductDiscount().subscribe(products=>{
       this.products=products;
       
     })

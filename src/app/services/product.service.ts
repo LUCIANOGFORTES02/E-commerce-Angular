@@ -42,5 +42,12 @@ export class ProductService {
     return this.http.get<Product[]>(url)  
   }
 
+  getProductBySlug(slug:string):Observable<any>{//Busca os produtos com deconto pelo slug
+    const url=`${this.baseURL}/product/${slug}`
+    return this.http.get<any>(url)  
+
+
+}
+
 
 }

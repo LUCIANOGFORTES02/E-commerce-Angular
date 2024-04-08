@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ProductService } from '../services/product.service';
-import { Product } from '../types/Product';
+import { Component, Input} from '@angular/core';
+
 
 @Component({
   selector: 'app-product-list',
@@ -8,6 +7,8 @@ import { Product } from '../types/Product';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent  {
-  @Input() products:any
+  @Input() products: any 
+
+
 
 }

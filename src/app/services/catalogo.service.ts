@@ -31,6 +31,10 @@ export class CatalogoService {
   }
 
   //Buscar a categoria e seus produtos
+  getCategoryProducts(slug:string):Observable<Category> {//Retorna a categoria e seus respectivos produtos
+    const url=`${this.baseURL}/category/${slug}`
+    return this.http.get<Category>(url)
+}
 
 
  

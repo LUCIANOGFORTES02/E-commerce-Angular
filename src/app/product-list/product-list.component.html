@@ -1,3 +1,9 @@
 <div class='flex w-full gap-4 overflow-x-auto px-5 [&::-webkit-scrollbar]:hidden'>
-    <app-product-item *ngFor="let product of products" [product]="product"></app-product-item>
+    <!-- <app-product-item *ngFor="let product of products" [product]="product"></app-product-item> -->
+    <ng-container  *ngFor="let product of products">
+        <app-product-item 
+          [product]="product"
+         >
+        </app-product-item>
+      </ng-container>
 </div>

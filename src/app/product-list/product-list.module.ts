@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { HlmBadgeDirective } from '../../../components/ui-badge-helm/src/lib/hlm-badge.directive';
+import { RouterModule } from '@angular/router';
+import { LucideAngularModule,ArrowDown  } from 'lucide-angular';
 
 
 
@@ -15,10 +17,14 @@ import { HlmBadgeDirective } from '../../../components/ui-badge-helm/src/lib/hlm
   imports: [
     CommonModule,
     HlmBadgeDirective,
+    RouterModule,
+    LucideAngularModule.pick({ ArrowDown  })
+  
 
   ],
   exports:[
     ProductListComponent,
+    ProductItemComponent
     
   ]
 })

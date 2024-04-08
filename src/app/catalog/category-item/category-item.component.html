@@ -7,7 +7,10 @@
             <img 
             src="{{category.imageUrl}}"
             alt="{{category.name}}"
-            sizes='100vw'
+            [width]="0"
+            [height]="0"
+            sizes="100vw"
+            [style.objectFit]="'contain'"
             class='h-auto w-auto max-w-[80%] max-h-[70%]'
             >
         </div>

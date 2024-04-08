@@ -1,1 +1,119 @@
-<p>product works!</p>
+<div *ngIf="product">
+    <div class='flex flex-col gap-8 pb-8 lg:container lg:mx-auto lg:gap-10 lg:py-10'>
+    <div class='flex flex-col gap-8 lg:flex-row lg:gap-9  lg:px-5'>
+        <!-- Imagem do produto -->
+        <div class="flex flex-col">
+            <div class="flex h-[380px] w-full items-center justify-center bg-accent">
+                <!-- Imagem Principal -->
+                <img 
+                    src="{{imageCurrent}}" 
+                    alt="{{product.name}}"
+                    [width]="0"
+                    [height]="0"
+                    sizes="100vw"
+                    [style.objectFit]="'contain'"
+                    class='h-auto w-auto max-w-[80%] max-h-[70%]'
+                    >
+            </div>
+            <div  class="mt-5 grid grid-cols-4 gap-4 px-5" >
+                <!-- Imagens Menores -->
+                <button hlmBtn
+                *ngFor="let image of product.imageUrls"
+                [ngClass]="{ 'border-2 border-solid border-primary': image === imageCurrent }"
+                class='flex justify-center items-center h-[100px] rounded-lg bg-accent'
+                (click)="handleClickImage(image)"
+                >
+                <img
+                src="{{image}}" 
+                alt="{{product.name}}"
+                [width]="0"
+                [height]="0"
+                sizes="100vw"
+                class='h-auto w-auto max-w-[80%] max-h-[70%]'
+                
+                />
+
+                </button>
+        
+            </div>
+            
+        </div>
+
+
+
+        <!-- Informaçãoes do produto -->
+        <div class='flex flex-col px-5'>
+            <h2 class='text-lg'>{{product.name}}</h2>
+    
+            <div class='flex items-center gap-2'>
+                <h1 className='text-xl font-bold'>R$ {{productWithPrice?.totalPrice?.toFixed(2)}}</h1>
+                <!-- Se tiver desconto o valor calcular o valor total -->
+                <div hlmBadge *ngIf="product.discountPercentage > 0" class='px-2 py-[0.125rem]'>
+                    <lucide-icon name="arrow-down" size="16"></lucide-icon>
+                    {{product.discountPercentage}} %
+                </div>
+
+            </div>
+            <p *ngIf="product.discountPercentage>0" class='opacity-75 line-through text-sm'>
+                R$ {{productWithPrice?.basePrice?.toFixed(2)}}
+            </p>
+           
+    
+            <!-- Se tiver desconto colocar o valor do desconto -->
+    
+            <div class='flex items-center gap-2 mt-4'>
+                <Button hlmBtn size="icon" variant="outline" (click)="handleDrecrementClick()">
+                    <lucide-icon name="arrow-left" size="16"></lucide-icon>
+                </Button>
+                
+                <span class=''>{{quantity}}</span>
+    
+                <Button hlmBtn size="icon" variant="outline" (click)="handleIncrementClick()">
+                    <lucide-icon name="arrow-right" size="16"></lucide-icon>
+                </Button>
+    
+            </div>
+            <div class='flex flex-col gap-2 mt-4'>
+                <h3 class='font-bold'>Descrição</h3>
+                <p class='text-justify text-sm opacity-65'>{{product.description}}</p> 
+            </div>
+    
+            <Button  hlmBtn
+                class='mt-8 font-bold uppercase'
+                (click)="handleAddToProduct()"
+            >
+                adicionar ao carrinho
+            </Button>
+    
+            <div class='mt-5 flex items-center justify-between rounded-lg bg-accent px-5'>
+                <div class='flex items-center gap-2'>
+                    <lucide-icon name="truck"></lucide-icon>
+                    <div class='flex flex-col'>
+                        <p class='text-xs'>Entrega via <span className='font-bold'>Sedex</span></p>
+                        <p class='text-xs text-purple-400'>Envio para todo Brasil</p>
+    
+                    </div>
+    
+                </div>
+                <p class='text-xs font-bold'>Frete Grátis</p>
+    
+    
+            </div>
+    
+    
+    
+            
+    
+        </div>
+
+    </div>
+    <div class='flex flex-col gap-5' >
+        <p  class='mb-3 pl-5 font-bold uppercase' >Produtos Recomendados</p>
+        
+        <app-product-list  [products]="product.category.products"></app-product-list>
+
+     
+    </div>
+   
+    </div>
+</div>

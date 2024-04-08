@@ -10,8 +10,13 @@ import { CatalogModule } from './catalog/catalog.module';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
-import { LucideAngularModule, ArrowDown } from 'lucide-angular';
-import { ProductRoutingModule } from './product-list/product-routing/product-routing.module';
+import { LucideAngularModule, ArrowDown ,ArrowLeft,ArrowRight,Truck  } from 'lucide-angular';
+import { CategoryComponent } from './category/category.component';
+import { HlmBadgeDirective } from '../../components/ui-badge-helm/src/lib/hlm-badge.directive';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductListModule } from './product-list/product-list.module';
+import { ProductComponent } from './product/product.component';
+import { HlmButtonDirective } from '../../components/ui-button-helm/src/lib/hlm-button.directive';
 
 
 
@@ -20,7 +25,7 @@ import { ProductRoutingModule } from './product-list/product-routing/product-rou
 
 @NgModule({
   declarations: [//Declarando os compoenentes desse módulo todos os compoenetes que estão dentro desse declaration são visíveis pro app.component
-    AppComponent, NaoEncontradoComponent, 
+    AppComponent, NaoEncontradoComponent, CategoryComponent,ProductComponent
     
   ],
   imports: [//Caso esteja em outro módulo
@@ -30,7 +35,12 @@ import { ProductRoutingModule } from './product-list/product-routing/product-rou
     HeaderModule,
     CatalogModule,
     HomeModule,    
-    LucideAngularModule, ProductRoutingModule
+    LucideAngularModule.pick({ Truck,ArrowDown ,ArrowLeft,ArrowRight }),
+    HlmBadgeDirective,
+    ProductListModule,
+    HlmButtonDirective
+
+    
     
 
 
