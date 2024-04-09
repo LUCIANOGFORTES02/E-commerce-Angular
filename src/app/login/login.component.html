@@ -1,0 +1,38 @@
+<div class="h-full flex justify-center items-center">
+    <div class="bg-background w-[21.875rem] p-[2.1875rem] flex flex-col items-center">
+           <div class="text-lg font-semibold mt-[0.625rem] mb-[0.9375rem]" >
+               {{showSigup?   'Cadastro':'Login'}}
+           </div>
+           <hr class=" w-full"/>
+         
+          
+                
+                  <input *ngIf="showSigup" class="border border-border text-black w-full mb-3 px-3 py-2 outline-none" 
+                    type="text" placeholder='Nome' [(ngModel)]="name"
+                  />
+
+                  <input class="border border-border  text-black w-full mb-3 px-3 py-2 outline-none" 
+                    type="email" placeholder='Email'  [(ngModel)]="email"
+                  />
+
+                  <input class="border border-border  text-black w-full mb-3 px-3 py-2 outline-none" 
+                    type="password" placeholder='Senha'   [(ngModel)]="password"
+                  />
+                  
+                  <input *ngIf="showSigup"  class="border border-border text-black w-full mb-3 px-3 py-2 outline-none" 
+                    type="password" placeholder='Confirme a Senha'   [(ngModel)]="confirmPassword"
+                  />
+                  
+           
+                <button  *ngIf="showSigup" class="mt-2 bg-primary py-1 px-4" (click)="handleLogin()" >Registrar</button> 
+                         <button *ngIf="!showSigup" class="mt-2 bg-primary py-1 px-4" (click)="handleLogin()" >Entrar</button>
+           
+
+           <a class="mt-3" href="#" (click)="handleTelaCadastro($event)">
+                   <span class="flex justify-center text-ring py-2"> {{showSigup?'Já tem cadastro? Acesse o Login!' : 'Não tem cadastro? Registre aqui!'}}</span> 
+                 
+           </a>
+     
+     </div>
+    
+ </div>

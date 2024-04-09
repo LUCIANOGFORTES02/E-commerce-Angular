@@ -17,6 +17,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListModule } from './product-list/product-list.module';
 import { ProductComponent } from './product/product.component';
 import { HlmButtonDirective } from '../../components/ui-button-helm/src/lib/hlm-button.directive';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +27,7 @@ import { HlmButtonDirective } from '../../components/ui-button-helm/src/lib/hlm-
 
 @NgModule({
   declarations: [//Declarando os compoenentes desse módulo todos os compoenetes que estão dentro desse declaration são visíveis pro app.component
-    AppComponent, NaoEncontradoComponent, CategoryComponent,ProductComponent
+    AppComponent, NaoEncontradoComponent, CategoryComponent,ProductComponent, LoginComponent
     
   ],
   imports: [//Caso esteja em outro módulo
@@ -38,7 +40,8 @@ import { HlmButtonDirective } from '../../components/ui-button-helm/src/lib/hlm-
     LucideAngularModule.pick({ Truck,ArrowDown ,ArrowLeft,ArrowRight }),
     HlmBadgeDirective,
     ProductListModule,
-    HlmButtonDirective
+    HlmButtonDirective,
+    FormsModule
 
     
     

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
+import { LoginComponent } from './login/login.component';
+import { authGuard } from './services/auth.guard';
 
 // Carregamento preguisoço de módulos
 
@@ -15,8 +17,8 @@ const routes: Routes = [
   {path:'category/:slug',component:CategoryComponent},
   {path: 'product/:slug', component: ProductComponent},
   // {path: 'product',loadChildren:()=> import('./')},
-    // {path: 'login',component:NaoEncontradoComponent},
-  // {path: 'admin',},
+  {path: 'login',component:LoginComponent},
+   {path: 'admin',component:NaoEncontradoComponent,canActivate:[authGuard]},
   {path: '**',component:NaoEncontradoComponent},
 ];
 
