@@ -19,6 +19,8 @@ import { ProductComponent } from './product/product.component';
 import { HlmButtonDirective } from '../../components/ui-button-helm/src/lib/hlm-button.directive';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -27,7 +29,7 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [//Declarando os compoenentes desse módulo todos os compoenetes que estão dentro desse declaration são visíveis pro app.component
-    AppComponent, NaoEncontradoComponent, CategoryComponent,ProductComponent, LoginComponent
+    AppComponent, NaoEncontradoComponent, CategoryComponent,ProductComponent, LoginComponent, CartComponent
     
   ],
   imports: [//Caso esteja em outro módulo
@@ -48,7 +50,7 @@ import { FormsModule } from '@angular/forms';
 
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

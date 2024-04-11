@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
-import { provideIcons } from '@ng-icons/core';
-import { lucideCross } from '@ng-icons/lucide';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { BrnSheetContentDirective, BrnSheetTriggerDirective } from '@spartan-ng/ui-sheet-brain';
@@ -25,7 +23,7 @@ import {
     HlmCardTitleDirective,
   } from '@spartan-ng/ui-card-helm';
 
-import { LucideAngularModule, User,Menu,ShoppingCart,Home,Percent,ListOrdered    } from 'lucide-angular';
+import { LucideAngularModule, User,Menu,ShoppingCart,Home,Percent,ListOrdered,LogIn,LogOut    } from 'lucide-angular';
 import { RouterModule } from '@angular/router';
 
 
@@ -52,8 +50,10 @@ import { RouterModule } from '@angular/router';
     HlmCardTitleDirective,
     HlmSeparatorDirective,
     BrnSeparatorComponent,
-    LucideAngularModule.pick({ User,Menu,ShoppingCart,Home,Percent,ListOrdered   })
+    HlmButtonDirective,
+    LucideAngularModule.pick({ User,Menu,ShoppingCart,Home,Percent,ListOrdered, LogIn ,LogOut }),
   ],
+ 
   exports:[
     HeaderComponent,
 

@@ -1,14 +1,19 @@
-import { CanActivateFn } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot, UrlTree,Router } from '@angular/router';
 
-export const authGuard: CanActivateFn = (route, state) => {//Determinar se uma rota pode ser ativada
+import { Observable } from 'rxjs';
+import { inject } from '@angular/core';
+import { AuthService } from './auth.service';
 
-  
+export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+):
+  Observable<boolean | UrlTree> 
+  | Promise<boolean | UrlTree> 
+  | boolean 
+  | UrlTree=> {
 
-  return true;
+  return inject(AuthService).authenticated()//Se estiver logado retorna true se não estiver retorna false e vai para tela de login
+  ? true
+  : inject(Router).createUrlTree(['/login']);
 
-  // Vou verificar o token 
-  //if token  retorna true 
-  //Else tela de logi 
-
-  
 };
