@@ -1,0 +1,66 @@
+<div class="flex items-center justify-between">
+    <div class="flex items-center gap-4">
+        <!-- /*Parte esquerda imagem e nome */ -->
+        <div class="flex justify-center items-center bg-accent rounded-lg w-[75px] h-[75px] lg:h-[120px] lg:w-[120px]">
+            <img 
+                src="{{product.imageUrls[0]}}"
+                alt="{{product.name}}"
+                [width]="0"
+                [height]="0"
+                sizes="100vw"
+                class="h-auto max-h-[70%] w-auto max-w-[80%]"
+                [style.objetcFit]="'contain'"
+
+                
+            />
+        </div>
+        <div class="flex flex-col gap-1 lg:gap-2">
+            <p class="text-xs">{{product.name}}</p>
+
+            <div class="flex items-center gap-1 lg:text-base">
+                <p class="font-bold text-sm">{{product.totalPrice.toFixed(2)}}</p>
+                <div *ngIf="product.discountPercentage>0">
+  
+                <p class='opacity-75 line-through text-xs lg:text-sm'>R$ {{product.basePrice.toFixed(2)}}</p> 
+                
+                </div>
+            </div>
+        
+        
+            <div class='flex items-center gap-1 lg:gap-3'>
+                <!-- Botão para diminuir a quantidade -->
+                <Button hlmBtn size="icon" variant="outline" class="h-8 w-8 lg:h-9 lg:w-9" 
+                (click)="decrementQuantity(product.id)">
+                    <lucide-icon name="ArrowLeft"  class="h-4 w-4 lg:h-5 lg:w-5"></lucide-icon>
+                </Button>
+                
+                <span class='text-xs lg:text-sm'> {{product.quantity}} </span>
+                <!-- Aumentar  a quantidade de produtos-->
+
+                <Button hlmBtn size="icon" variant="outline" class="h-8 w-8 lg:h-9 lg:w-9" 
+                (click)="incrementQuantity(product.id)">
+                    <lucide-icon name="ArrowRight"  class="h-4 w-4 lg:h-5 lg:w-5"></lucide-icon>
+                   
+                </Button>
+            </div>
+        </div>
+
+       
+        
+
+    </div>
+        <!-- /* Parte direita botão de deletar */ -->
+        <Button 
+            class="h-8 w-8 lg:h-9 lg:w-9"
+             size="icon" 
+             variant="outline" 
+             (click)="handleRemoveProductClick(product.id)">
+
+             <lucide-icon name="Trash"  class="h-4 w-4 lg:h-5 lg:w-5"></lucide-icon>
+            
+             
+        </Button>
+
+       
+    
+</div>

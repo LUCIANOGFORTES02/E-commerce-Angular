@@ -3,6 +3,8 @@ import { ProductService } from '../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from '../types/Category';
 import { ProductWithTotalPrice, computeProductTotalPrice } from '../helpers/product';
+import { CartProduct } from '../types/cart';
+import { CartService } from '../services/cart.service';
 
 interface Product {
   id: string;
@@ -40,7 +42,8 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private productService:ProductService,
-    private route : ActivatedRoute//Fornece informações sobre a rota ativa incluindo parâmetros da rota
+    private route : ActivatedRoute,//Fornece informações sobre a rota ativa incluindo parâmetros da rota
+    private cartService:CartService
 
   ){
 
@@ -69,7 +72,7 @@ export class ProductComponent implements OnInit {
             this.productWithPrice= {
               ...this.product,
               basePrice: Number(this.product.basePrice),
-              totalPrice: computeProductTotalPrice(this.product)
+              totalPrice: (computeProductTotalPrice(this.product))
               }
             }
     
@@ -99,7 +102,15 @@ export class ProductComponent implements OnInit {
   }
 
   handleAddToProduct=()=>{
-    console.log("Olá")
+    if(this.productWithPrice!=null){//
+    const cartProduct={
+      ...this.productWithPrice,
+      quantity:this.quantity
+    }
+    this.cartService.addProductToCart(cartProduct)
+    }
+    
+   
     
   }
 

@@ -25,6 +25,7 @@ import {
 
 import { LucideAngularModule, User,Menu,ShoppingCart,Home,Percent,ListOrdered,LogIn,LogOut    } from 'lucide-angular';
 import { RouterModule } from '@angular/router';
+import { CartModule } from '../cart/cart.module';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { RouterModule } from '@angular/router';
     HlmSeparatorDirective,
     BrnSeparatorComponent,
     HlmButtonDirective,
+    CartModule,
     LucideAngularModule.pick({ User,Menu,ShoppingCart,Home,Percent,ListOrdered, LogIn ,LogOut }),
   ],
  

@@ -1,1 +1,56 @@
-<p>cart works!</p>
+
+<div class='flex flex-col gap-8 h-full'>
+    <div hlmBadge
+      class='w-fit gap-1 border-2 border-primary px-3 py-[0.375rem] uppercase' 
+      variant="outline"
+      >
+      <lucide-icon name="shopping-cart" size="16"></lucide-icon>
+
+        carrinho
+    </div>
+
+    <div class='flex h-full max-h-full flex-col gap-5 overflow-hidden'>
+      <hlm-scroll-area class='h-full'> 
+       
+        <div class='flex h-full flex-col gap-6' *ngIf="cartProducts"  >
+          <div *ngFor="let item of cartProducts">
+
+            <app-cart-item [product]="item"></app-cart-item>
+          </div>
+        </div>
+         
+        <div class='flex h-full flex-col gap-6' *ngIf="!cartProducts"  >
+          <p className='text-center text-lg font-semibold'>Carrinho vazio</p>
+        </div>
+      </hlm-scroll-area> 
+    </div>
+
+   <div *ngIf="cartProducts" >
+    <div class='flex flex-col gap-3'>
+        <brn-separator hlmSeparator/>
+      <div class='flex items-center justify-between text-sm'>
+        <p class='font-semibold'>Subtotal</p>
+        <p>{{ subTotal  | currency: 'BRL':'symbol':'1.2-2'  }}</p>
+      </div>
+      <brn-separator hlmSeparator/>
+
+      <div class='flex items-center justify-between text-sm'>
+        <p class='font-semibold'>Desconto</p>
+        <p>- {{ totalDiscount  | currency: 'BRL':'symbol':'1.2-2'  }}</p>
+      </div>
+      <brn-separator hlmSeparator/> 
+      
+
+      <div class='flex items-center justify-between text-sm'>
+        <p class='font-semibold'>Total</p>
+          <p>{{ total | currency: 'BRL':'symbol':'1.2-2'  }} </p>
+      </div>
+
+     </div> 
+   </div>
+
+    <Button class="mt-7 font-bold uppercase" hlmBtn>
+        Finalizar compra
+    </Button>
+
+</div>
