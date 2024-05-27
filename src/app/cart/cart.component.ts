@@ -27,12 +27,15 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.cartProducts$.subscribe(products => {
       this.cartProducts = products;
-      this.subTotal = this.cartService.subTotal;
-      this.total = this.cartService.total;
-      this.totalDiscount = this.cartService.totaldiscount;
+      this.updateTotals();
+
     });
     
-    
+  }
+  updateTotals(): void {
+    this.subTotal = this.cartService.subTotal;
+    this.total = this.cartService.total;
+    this.totalDiscount = this.cartService.totalDiscount;
   }
 
 

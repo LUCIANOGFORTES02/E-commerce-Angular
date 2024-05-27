@@ -22,6 +22,9 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { AdminComponent } from './admin/admin.component';
+import { AddProdctsComponent } from './admin/add-prodcts/add-prodcts.component';
+import { ProductsTableComponent } from './admin/products-table/products-table.component';
 
 
 
@@ -30,7 +33,7 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [//Declarando os compoenentes desse módulo todos os compoenetes que estão dentro desse declaration são visíveis pro app.component
-    AppComponent, NaoEncontradoComponent, CategoryComponent,ProductComponent, LoginComponent, 
+    AppComponent, NaoEncontradoComponent, CategoryComponent,ProductComponent, LoginComponent, AdminComponent, AddProdctsComponent, ProductsTableComponent, 
     
   ],
   imports: [//Caso esteja em outro módulo

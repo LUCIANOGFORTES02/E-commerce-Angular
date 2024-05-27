@@ -10,14 +10,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 
 export class CartService {
-  private cartProductsSubject: BehaviorSubject<CartProduct[]> = new BehaviorSubject<CartProduct[]>([]);
+  private cartProductsSubject: BehaviorSubject<CartProduct[]> = new BehaviorSubject<CartProduct[]>([]);//
   public cartProducts$: Observable<CartProduct[]> = this.cartProductsSubject.asObservable();
-  public cartTotalPrice: number = 0;
-  public cartBasePrice: number = 0;
-  public cartTotalDiscount: number = 0;
   public subTotal: number = 0;
   public total: number = 0;
-  public totaldiscount: number = 0;
+  public totalDiscount: number = 0;
 
 
   constructor() { 
@@ -32,20 +29,24 @@ export class CartService {
     if (productsJson){
       const products: CartProduct[]=JSON.parse(productsJson);
       this.cartProductsSubject.next(products);
+      this.updateTotals(products);
+
 
     }
   }
 
   //Salvar os produtos no localStorage
   private saveProductsToLocalStorage(products:CartProduct[]):void{
-    localStorage.setItem('cartProducts',JSON.stringify(products))
+    localStorage.setItem('cartProducts',JSON.stringify(products));
+    this.updateTotals(products);
+
 
   }
   private updateCartTotals(): void {//Realizar os cálculos
     const products = this.cartProductsSubject.value;
     this.subTotal = products.reduce((acc, product) => acc + (Number(product.basePrice) * product.quantity), 0);
     this.total = products.reduce((acc, product) => acc + (Number(product.totalPrice) * product.quantity), 0);
-    this.totaldiscount = this.subTotal - this.total;
+    this.totalDiscount = this.subTotal - this.total;
   }
 
   get cartProducts(): CartProduct[] {
@@ -65,13 +66,30 @@ export class CartService {
       return cartProduct;
     })
     .filter(cartProduct => cartProduct.quantity > 0);
+    this.cartProductsSubject.next(updatedProducts);
+    this.saveProductsToLocalStorage(updatedProducts);
+    this.updateCartTotals();
 
   }
+
 
   //Incrementar a quantidade
   incrementQuantity(productId: string):any{
+    const updatedProducts = this.cartProductsSubject.value.map(cartProduct => {
+      if (cartProduct.id === productId) {
+        return {
+          ...cartProduct,
+          quantity: cartProduct.quantity + 1
+        };
+      }
+      return cartProduct;
+    });
 
+    this.cartProductsSubject.next(updatedProducts);
+    this.saveProductsToLocalStorage(updatedProducts);
+    this.updateCartTotals();
   }
+  
 
 
   //Adicionar o produto ao carrinho
@@ -103,7 +121,7 @@ export class CartService {
     this.saveProductsToLocalStorage(updatedProducts);
     this.updateCartTotals();//Atualizar os valores dos produtos no carrinho
   }
-
+  
   //Remover o produto do carrinho
   removeProductinCart(productId: string): void {
     const updatedProducts = this.cartProductsSubject.value.filter(cartProduct => cartProduct.id !== productId);
@@ -111,5 +129,11 @@ export class CartService {
     this.saveProductsToLocalStorage(updatedProducts);
     this.updateCartTotals();
   }
+    // Atualizar os totais do carrinho
+    private updateTotals(products: CartProduct[]): void {
+      this.subTotal = products.reduce((acc, product) => acc + product.basePrice * product.quantity, 0);
+      this.total = products.reduce((acc, product) => acc + product.totalPrice * product.quantity, 0);
+      this.totalDiscount = this.subTotal - this.total;
+    }
 
 }

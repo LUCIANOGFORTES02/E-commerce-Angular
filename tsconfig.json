@@ -48,6 +48,9 @@
       ],
       "@spartan-ng/ui-scrollarea-helm": [
         ".\\components/ui-scrollarea-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-table-helm": [
+        ".\\components/ui-table-helm/src/index.ts"
       ]
     }
   },

@@ -10,20 +10,20 @@ import { CartService } from '../../services/cart.service';
 export class CartItemComponent {
   @Input() product:CartProduct =  {} as CartProduct;//Inicializar product como uma instância vazia de CartProduct
   cartProducts: CartProduct[] = [];
-  subTotal: number = 0;
-  total: number = 0;
-  totalDiscount: number = 0;
+  // subTotal: number = 0;
+  // total: number = 0;
+  // totalDiscount: number = 0;
 
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.cartProducts$.subscribe(products => {
-      this.cartProducts = products;
-      this.subTotal = this.cartService.subTotal;
-      this.total = this.cartService.total;
-      this.totalDiscount = this.cartService.totaldiscount;
-    });
+    // this.cartService.cartProducts$.subscribe(products => {
+    //   this.cartProducts = products;
+    //   this.subTotal = this.cartService.subTotal;
+    //   this.total = this.cartService.total;
+    //   this.totalDiscount = this.cartService.totaldiscount;
+    // });
   }
 
 

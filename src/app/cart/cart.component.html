@@ -19,13 +19,13 @@
           </div>
         </div>
          
-        <div class='flex h-full flex-col gap-6' *ngIf="!cartProducts"  >
+        <div class='flex h-full flex-col gap-6' *ngIf="cartProducts.length===0"  >
           <p className='text-center text-lg font-semibold'>Carrinho vazio</p>
         </div>
       </hlm-scroll-area> 
     </div>
 
-   <div *ngIf="cartProducts" >
+   <div *ngIf="cartProducts.length>0" >
     <div class='flex flex-col gap-3'>
         <brn-separator hlmSeparator/>
       <div class='flex items-center justify-between text-sm'>
