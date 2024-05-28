@@ -29,10 +29,10 @@
             <!-- Produtos que possuem preço com desconto -->
             <div *ngIf="product.discountPercentage>0" >
               <p class="truncate font-semibold lg:text-lg"> 
-              R$ {{productWithPrice?.basePrice?.toFixed(2)}}
+              R$ {{productWithPrice?.totalPrice?.toFixed(2)}}
               </p>
               <p class="truncate text-xs line-through opacity-75 lg:text-sm">
-                R$ {{productWithPrice?.totalPrice?.toFixed(2)}}
+                R$ {{ productWithPrice?.basePrice?.toFixed(2)}}
               </p>
             </div>
 
