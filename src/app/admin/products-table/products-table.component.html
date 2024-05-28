@@ -1,1 +1,20 @@
-<p>products-table works!</p>
+
+<hlm-table class="w-full min-w-[400px]">
+    <hlm-caption>Lista com todos os produtos e suas categorias</hlm-caption>
+    <hlm-trow>
+        <hlm-th class="w-52">Nome</hlm-th>
+        <hlm-th class="w-60">Categoria</hlm-th>
+        <hlm-th class="flex-1">Preço total</hlm-th>
+        <hlm-th class="justify-end w-40">Preço base</hlm-th>
+      </hlm-trow>
+      @for (product of products; track product.id) {
+        <hlm-trow>
+          <hlm-td truncate class="font-medium w-52">{{ product.name }}</hlm-td>
+          <hlm-td class="w-60">{{ product.category.name }}</hlm-td>
+          <hlm-td class="flex-1">{{ product.totalPrice }}</hlm-td>
+          <hlm-td class="justify-end w-40">{{ product.basePrice }}</hlm-td>
+        </hlm-trow>
+      }
+  
+    
+</hlm-table>

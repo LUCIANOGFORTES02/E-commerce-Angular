@@ -1,1 +1,21 @@
-<p>admin works!</p>
+
+    <div class='flex w-full flex-col gap-10 p-10 '>
+        <div hlmBadge class='w-fit border-primary border-2  px-3 py-[0.375rem]' variant='outline'>
+            <lucide-icon name="user" size="20"></lucide-icon>
+        </div>
+
+    <div class='flex w-full items-center justify-between'>
+        <p class='text-lg font-bold'>Produtos encontrados : </p>
+
+    <a routerLink="/addproducts">
+        <Button hlmBtn class='flex gap-1'>
+            <lucide-icon name="plus" size="20"></lucide-icon>
+        Adicionar Produto
+        </Button>
+    </a>
+    </div>
+    
+    <!-- {/* Precisa passar o produto e sua respectiva categoria */} -->
+    <app-products-table [products]="products"></app-products-table>
+         
+ </div>

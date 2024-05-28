@@ -1,1 +1,46 @@
-<p>add-prodcts works!</p>
+<div class='p-5  shadow-md' >
+    <p class='text-lg font-semibold mb-4'>Preencha os campos</p>
+    <div class='flex flex-col gap-4 text-black '>
+        <input 
+            class="appearance-none rounded-lg w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-primary border-2"
+            type="text" placeholder='Informe o nome'  [(ngModel)]="name" />
+        <input
+            class="appearance-none rounded-lg w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-primary border-2" 
+            type="text"  placeholder='Informe o slug'  [(ngModel)]="slug"/>
+        <input 
+            class="appearance-none rounded-lg w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-primary border-2"
+            type="text"  placeholder='Informe o description' [(ngModel)]="description" />
+        <input 
+            class="appearance-none rounded-lg w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-primary border-2"
+            type="number"  placeholder='Informe o preço base' [(ngModel)]="basePrice"   />
+        <select 
+            class=" rounded-lg w-full py-2 px-4  focus:outline-none focus:bg-white focus:border-primary border-2"
+            id='categoryId' placeholder='Selecione uma categoria' [(ngModel)]="category">
+            <option>Selecione uma Categoria</option>
+            
+                    <option *ngFor="let category of selectCategories" key={category.id} [value]="category.id">{{ category.name }}</option>
+        </select>
+
+        <input 
+            class="appearance-none rounded-lg w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-primary border-2"
+            type="number"  placeholder='Informe o desconto' [(ngModel)]="discount"/>
+        <input 
+            class="appearance-none rounded-lg w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-primary border-2"
+            type="text"  placeholder='Informe a url da imagem' [(ngModel)]="imageUrls[0]" />
+        <input 
+            class="appearance-none rounded-lg w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-primary border-2"
+            type="text"  placeholder='Informe a url da imagem' [(ngModel)]="imageUrls[1]" />
+    </div>
+
+
+   
+
+    <div class='flex items-center justify-end mt-4'>
+        <Button hlmBtn (click)="handleSaveProduct()" class=' flex gap-1'> 
+            <lucide-icon name="save" size="18"></lucide-icon>
+            Salvar
+        </Button>
+    </div>
+    <!-- <ToastContainer/> -->
+   
+</div>

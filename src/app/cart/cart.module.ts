@@ -20,7 +20,7 @@ import { HlmScrollAreaComponent } from '@spartan-ng/ui-scrollarea-helm';
     HlmButtonDirective,
     HlmSeparatorDirective, 
     BrnSeparatorComponent,
-     HlmScrollAreaComponent,
+    HlmScrollAreaComponent,
   
     LucideAngularModule.pick({ ShoppingCart,ArrowRight,ArrowLeft,Trash }),
   ],

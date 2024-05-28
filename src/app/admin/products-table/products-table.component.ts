@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ProductWithTotalPriceAndCategory } from '../admin.component';
+
 
 @Component({
   selector: 'app-products-table',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './products-table.component.css'
 })
 export class ProductsTableComponent {
+  @Input() products: ProductWithTotalPriceAndCategory[] = [];
+
 
 }
