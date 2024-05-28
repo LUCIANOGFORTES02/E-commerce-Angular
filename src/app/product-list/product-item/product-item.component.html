@@ -14,9 +14,9 @@
             alt="{{product.name}}" />
 
           <!-- Símbolo de desconto -->
-          <div hlmBadge class="absolute left-2 top-2 px-2 py-[1px]">
-            <lucide-icon name="arrow-down" size="12"></lucide-icon>
-
+          <div *ngIf="product.discountPercentage>0" hlmBadge class="absolute left-2 top-2 px-2 py-[1px]">
+            <lucide-icon name="arrow-down" size="12"> </lucide-icon>
+            {{product.discountPercentage}} %
 
           </div>
 

@@ -29,9 +29,6 @@ export class LoginComponent  implements OnInit {
 
     ngOnInit(): void {
    
-
-      
-
     }
 
    handleLogin(){//subscribe observação dos valores emitidos pelo objeto observable
@@ -44,11 +41,7 @@ export class LoginComponent  implements OnInit {
         console.log('Erro ao fazer login');
         // Exibir mensagem de erro para o usuário
       }
-
     })
-
-
-    
 
   }
 
